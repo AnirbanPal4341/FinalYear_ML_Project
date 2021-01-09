@@ -65,7 +65,7 @@ def analysis(audioName):
         writer.writerow(feature_data.split())
         
     ''' reading from our training dataset and fitting our test data to our knn model '''    
-    data = pd.read_csv('../Music_Features_dataset(2).csv')
+    data = pd.read_csv('./Music_Features_dataset(2).csv')
     dataset = data[data['label'].isin(['jazz', 'metal','classical','blues','pop'])].drop(['filename'],axis=1)
     y = LabelEncoder().fit_transform(dataset.iloc[:,-1])
     scaler=StandardScaler().fit(np.array(dataset.iloc[:, :-1], dtype = float))
